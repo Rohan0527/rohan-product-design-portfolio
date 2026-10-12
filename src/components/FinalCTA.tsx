@@ -13,30 +13,30 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
   const opacity = useTransform(scrollYProgress, [0.1, 0.9], [0, 1]);
 
   const ctas = [
-    { label: "Let's Build", href: `mailto:${profile.email}?subject=${encodeURIComponent("Let's build something")}`, primary: true, cursor: 'play' },
+    { label: "Let's Build", href: "mailto:rohangaikwad2707@gmail.com", primary: true, cursor: 'play' },
     { label: 'LinkedIn', href: profile.links.linkedin, cursor: 'link' },
     { label: 'GitHub', href: profile.links.github, cursor: 'link' },
-    { label: 'Email', href: `mailto:${profile.email}`, cursor: 'link' },
+    { label: 'Email', href: "mailto:rohangaikwad2707@gmail.com", cursor: 'link' },
   ];
 
   return (
     <section id="contact" ref={ref} className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 py-24 text-center">
-      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_60%,rgba(229,19,43,0.18),transparent_70%)]" />
+      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_60%,rgba(255,135,51,0.10),transparent_70%)]" />
       <Particles count={36} />
 
       <motion.p
-        className="relative mb-6 text-[11px] font-bold uppercase tracking-[0.5em] text-crimson-2"
+        className="relative mb-6 text-[11px] font-bold uppercase tracking-[0.5em] text-orange-2"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        The Next Episode
+        Contact & Collaboration
       </motion.p>
       <motion.h2
         className="relative font-display leading-[0.85] text-bone"
         style={{ fontSize: 'clamp(3.4rem, 13vw, 12rem)', letterSpacing: spacing, filter: blur, opacity }}
       >
-        TO BE CONTINUED…
+        LET&apos;S CONNECT
       </motion.h2>
 
       <motion.div
@@ -66,7 +66,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
                 rel={c.href.startsWith('http') ? 'noreferrer' : undefined}
                 data-cursor={c.cursor}
                 className={`flex min-h-12 items-center gap-2 rounded-full px-7 text-sm font-bold tracking-[0.12em] transition ${
-                  c.primary ? 'bg-crimson text-white shadow-[0_0_50px_rgba(229,19,43,0.5)] hover:bg-crimson-2' : 'border border-white/25 text-bone hover:border-bone hover:bg-white/10'
+                  c.primary ? 'bg-orange text-ink shadow-[0_0_40px_rgba(255,135,51,0.24)] hover:bg-orange-2' : 'border border-white/25 text-bone hover:border-orange-2 hover:bg-white/10'
                 }`}
               >
                 {c.primary && <span>▶</span>}
@@ -80,7 +80,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
 
       <div className="relative mt-16 flex flex-wrap justify-center gap-6 text-xs font-semibold tracking-[0.24em] text-smoke">
         <button type="button" onClick={() => scrollTo(0, { offset: 0 })} className="hover:text-bone">
-          ↺ WATCH AGAIN
+          ↺ BACK TO TOP
         </button>
         <button type="button" onClick={onReplay} className="hover:text-bone">
           ▶ REPLAY OPENING
@@ -89,7 +89,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
 
       <footer className="absolute inset-x-0 bottom-0 px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] text-center">
         <p className="text-[11px] leading-relaxed text-smoke">
-          © {new Date().getFullYear()} {profile.displayName}. A personal, streaming-inspired portfolio — not affiliated with any streaming service.
+          © {new Date().getFullYear()} {profile.displayName}. Product design and development portfolio.
         </p>
       </footer>
     </section>

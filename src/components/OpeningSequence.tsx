@@ -6,12 +6,12 @@ import { EASE, Magnetic } from './fx';
 
 /**
  * The signature moment:
- * black → studio card → ROHAN → THE PORTFOLIO → portrait reveal → role → ▶ PLAY
+ * black → name card → ROHAN → portfolio focus → portrait reveal → role → ▶ PLAY
  */
 const TIMELINE = [
-  { at: 300, beat: 1 }, // studio card
+  { at: 300, beat: 1 }, // name card
   { at: 1900, beat: 2 }, // name
-  { at: 2700, beat: 3 }, // THE SERIES
+  { at: 2700, beat: 3 }, // portfolio focus
   { at: 3400, beat: 4 }, // portrait
   { at: 4300, beat: 5 }, // role
   { at: 5000, beat: 6 }, // play button
@@ -51,7 +51,7 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
       <motion.div
         aria-hidden
         className="absolute inset-0"
-        style={{ background: 'radial-gradient(60% 50% at 50% 55%, rgba(229,19,43,0.22), transparent 70%)' }}
+        style={{ background: 'radial-gradient(60% 50% at 50% 55%, rgba(255,135,51,0.12), transparent 70%)' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: beat >= 2 ? [0, 0.9, 0.5, 1] : 0 }}
         transition={{ duration: 1.4 }}
@@ -74,7 +74,7 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
               animate={{ letterSpacing: '0.6em', opacity: 1 }}
               transition={{ duration: 1.6, ease: EASE }}
             >
-              {profile.originalLabel}
+              {profile.introLabel}
             </motion.p>
           </motion.div>
         )}
@@ -110,12 +110,12 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
           {profile.firstName}
         </motion.h1>
         <motion.p
-          className="font-sans text-sm font-bold text-crimson-2 [text-shadow:0_2px_20px_rgba(0,0,0,0.9)] sm:text-lg"
+          className="font-sans text-sm font-bold text-orange-2 [text-shadow:0_2px_20px_rgba(0,0,0,0.9)] sm:text-lg"
           initial={{ opacity: 0, letterSpacing: '1.4em' }}
           animate={beat >= 3 ? { opacity: 1, letterSpacing: '0.7em', y: beat >= 4 ? '-30vh' : 0 } : {}}
           transition={{ duration: 1.1, ease: EASE }}
         >
-          {profile.seriesTag}
+          {profile.portfolioLabel}
         </motion.p>
       </div>
 
@@ -136,7 +136,7 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
               data-cursor="play"
               onClick={onDone}
               tabIndex={beat >= 6 ? 0 : -1}
-              className="group flex items-center gap-3 rounded-full bg-bone px-9 py-4 font-sans text-base font-bold tracking-wide text-ink shadow-[0_0_60px_rgba(229,19,43,0.45)] transition hover:bg-white"
+              className="group flex items-center gap-3 rounded-full bg-orange px-9 py-4 font-sans text-base font-bold tracking-wide text-ink shadow-[0_0_40px_rgba(255,135,51,0.22)] transition hover:bg-orange-2"
             >
               <span className="text-lg transition-transform group-hover:scale-125">▶</span> PLAY
             </button>

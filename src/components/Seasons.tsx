@@ -13,13 +13,12 @@ export default function Seasons() {
   return (
     <>
       <SectionHeading
-        kicker={`${seasons.length} Seasons`}
+        kicker={`${seasons.length} Design Stages`}
         title="My Journey"
-        aside={<p className="max-w-xs text-sm text-mist">Every stage of the resume, told as a season — select one to see its episodes.</p>}
+        aside={<p className="max-w-xs text-sm text-mist">Explore the design process from foundations and research through prototyping and validation.</p>}
       />
 
-      {/* season selector */}
-      <div className="rail gutter mb-8 flex gap-2 overflow-x-auto" role="tablist" aria-label="Seasons">
+      <div className="rail gutter mb-8 flex gap-2 overflow-x-auto" role="tablist" aria-label="Design stages">
         {seasons.map((s, i) => (
           <button
             key={s.number}
@@ -33,7 +32,7 @@ export default function Seasons() {
             className={`relative shrink-0 rounded-full px-4 py-2.5 text-left transition ${i === active ? 'text-ink' : 'text-mist hover:text-bone'}`}
           >
             {i === active && <motion.span layoutId="season-pill" className="absolute inset-0 rounded-full bg-bone" transition={{ duration: 0.5, ease: EASE }} />}
-            <span className="relative block text-[10px] font-bold tracking-[0.24em]">SEASON {String(s.number).padStart(2, '0')}</span>
+            <span className="relative block text-[10px] font-bold tracking-[0.24em]">STAGE {String(s.number).padStart(2, '0')}</span>
             <span className="relative block whitespace-nowrap text-sm font-semibold">{s.title}</span>
           </button>
         ))}
@@ -49,11 +48,11 @@ export default function Seasons() {
         >
           <div className="gutter mb-2 flex flex-wrap items-baseline gap-x-4 gap-y-1">
             <h3 className="font-display text-4xl tracking-wide text-bone sm:text-5xl">
-              <span className="text-outline mr-3">S{String(season.number).padStart(2, '0')}</span>
+              <span className="text-outline mr-3">0{season.number}</span>
               {season.title}
             </h3>
             <span className="text-sm text-mist">
-              {season.period} · {season.episodes.length} {season.episodes.length === 1 ? 'Episode' : 'Episodes'}
+              {season.period} · {season.episodes.length} {season.episodes.length === 1 ? 'Focus area' : 'Focus areas'}
             </span>
           </div>
           <p className="gutter max-w-3xl text-[15px] leading-relaxed text-bone/75">{season.synopsis}</p>

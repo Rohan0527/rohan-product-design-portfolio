@@ -26,11 +26,13 @@ const ResumeModal = lazy(() => import('./components/ResumeModal'));
 
 type Stage = 'opening' | 'profiles' | 'home';
 
-const STORAGE_KEY = 'sushmita-series-profile';
+const STORAGE_KEY = 'rohan-portfolio-profile';
+const LEGACY_STORAGE_KEY = 'sushmita-series-profile';
 
 function readStoredProfile(): ProfileId | null {
   try {
-    const v = sessionStorage.getItem(STORAGE_KEY);
+    const saved = sessionStorage.getItem(STORAGE_KEY) ?? sessionStorage.getItem(LEGACY_STORAGE_KEY);
+    const v = saved === 'sushmita' ? 'main' : saved;
     return viewerProfiles.some((p) => p.id === v) ? (v as ProfileId) : null;
   } catch {
     return null;
@@ -40,15 +42,15 @@ function readStoredProfile(): ProfileId | null {
 export default function App() {
   return (
     <SmoothScrollProvider>
-      <Series />
+      <PortfolioExperience />
     </SmoothScrollProvider>
   );
 }
 
-function Series() {
+function PortfolioExperience() {
   const stored = readStoredProfile();
   const [stage, setStage] = useState<Stage>(stored ? 'home' : 'opening');
-  const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'sushmita');
+  const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'main');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
   const [resumeOpen, setResumeOpen] = useState(false);
@@ -76,7 +78,7 @@ function Series() {
         setStage('home');
       } else {
         const p = viewerProfiles.find((v) => v.id === id)!;
-        setToast(`Now watching as ${p.name} — ${p.blurb.toLowerCase()}`);
+        setToast(`Viewing as ${p.name} — ${p.blurb.toLowerCase()}`);
         scrollTo(0, { offset: 0 });
       }
     },

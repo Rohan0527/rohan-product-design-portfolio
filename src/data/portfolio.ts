@@ -9,9 +9,8 @@ export const profile = {
   fullName: 'Rohan Suresh Gaikwad',
   displayName: 'Rohan Gaikwad',
   firstName: 'ROHAN',
-  seriesTag: 'THE PORTFOLIO',
-  /** Fictional studio card shown at the very start of the opening sequence. */
-  originalLabel: 'A ROHAN ORIGINAL',
+  portfolioLabel: 'PRODUCT DESIGN & DEVELOPMENT',
+  introLabel: 'ROHAN SURESH GAIKWAD',
   role: 'UI/UX & Product Designer',
   tagline: ['UI/UX & Product Designer', 'User Research', 'Figma'],
   intro:
@@ -57,26 +56,12 @@ export const education = [
   },
 ];
 
-export const experience = [
-  {
-    company: 'Learning Portfolio Practice',
-    role: 'Product Design Learner',
-    place: 'Remote / Personal Projects',
-    period: '2025 – Present',
-    points: [
-      'Exploring user-centered product design through research, prototyping, and interface thinking across personal case studies and concept work.',
-      'Shaping information architecture, user journeys, interaction patterns, and design system decisions around clarity and usability.',
-      'Building a portfolio that documents thinking, iteration, and visual decision-making across product scenarios and digital experiences.',
-    ],
-  },
-];
-
 export type Metric = { value: string; label: string };
 
 export type Project = {
   id: string;
   title: string;
-  year: string;
+  year?: string;
   genre: string;
   logline: string;
   stack: string[];
@@ -91,131 +76,56 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'commerce-discovery',
-    title: 'Commerce Discovery Redesign',
-    year: '2025',
-    genre: 'UX • E-commerce • Research',
-    logline: 'A concept redesign centered on product discovery, search clarity, and more confident decision-making.',
-    stack: ['User Research', 'Wireframes', 'Prototype', 'Design System'],
-    build: [
-      'Mapped friction across product discovery, category browsing, and filtering to identify where users lose confidence or momentum.',
-      'Reframed the experience around better hierarchy, clearer CTAs, and more useful product comparisons to support purchase decisions faster.',
-    ],
+    id: 'manufacturing-erp-inventory',
+    title: 'Manufacturing ERP & Inventory Automation System',
+    genre: 'Python • ERP • Inventory Management',
+    logline: 'Built a Python-based ERP system to manage products, suppliers, purchases, inventory, production, and sales, with SQLite-backed CRUD operations and CSV reporting.',
+    stack: ['Python', 'Flask', 'SQLite', 'SQL', 'Pandas', 'CSV'],
+    build: [],
+    metrics: [],
     features: [
-      'Search and filter redesign',
-      'Category navigation improvement',
-      'Higher-clarity product detail flow',
-      'Conversion-friendly checkout touchpoints',
+      'Product, supplier, purchase, inventory, production, and sales management',
+      'SQLite-backed CRUD operations',
+      'CSV reporting',
     ],
-    metrics: [
-      { value: '3', label: 'core journeys mapped' },
-      { value: '7', label: 'UX pain points reviewed' },
-      { value: '2', label: 'design iteration rounds' },
-    ],
-    palette: { from: '#2a0610', via: '#7a0f24', to: '#0b0710', accent: '#ff3d5a' },
+    palette: { from: '#24140c', via: '#6b3517', to: '#090909', accent: '#FF8733' },
     motif: 'shield',
   },
   {
-    id: 'insights-dashboard',
-    title: 'Insights Dashboard',
-    year: '2025',
-    genre: 'Product Design • SaaS • Analytics',
-    logline: 'A design exploration for complex dashboard clarity, prioritization, and decision support.',
-    stack: ['Information Architecture', 'Dashboard Design', 'UX Writing', 'Prototyping'],
-    build: [
-      'Explored how a dense data experience could present clearer hierarchy, more useful filters, and faster information scanning.',
-      'Restructured the information architecture to guide attention toward decisions, anomalies, and immediate action areas without overwhelming the user.',
-    ],
+    id: 'employee-attendance-leave',
+    title: 'Employee Attendance & Leave Automation System',
+    genre: 'Python • Employee Management • Automation',
+    logline: 'Developed an employee management system for attendance tracking, leave requests, attendance history, automated attendance percentages, and leave-balance calculations.',
+    stack: ['Python', 'Flask', 'SQLite', 'SQL', 'HTML', 'CSS', 'JavaScript'],
+    build: [],
+    metrics: [],
     features: [
-      'Data hierarchy and dashboard clarity',
-      'Improved filter patterns',
-      'Simplified table and chart prioritization',
-      'Responsive enterprise-ready screens',
+      'Attendance tracking and history',
+      'Leave requests and leave-balance calculations',
+      'Automated attendance percentages',
     ],
-    metrics: [
-      { value: '4', label: 'key user journeys' },
-      { value: '1', label: 'concept system', },
-      { value: '2', label: 'feedback loops' },
-    ],
-    palette: { from: '#1a0d02', via: '#8a4a07', to: '#0a0806', accent: '#ffb547' },
+    palette: { from: '#1a0d02', via: '#8a4a07', to: '#0a0806', accent: '#FFB36B' },
     motif: 'flow',
   },
   {
-    id: 'streaming-refresh',
-    title: 'Streaming Experience Refresh',
-    year: '2025',
-    genre: 'UI • Media • Product Flow',
-    logline: 'A concept refresh for discovery, continue-watching, and mobile-first browsing comfort.',
-    stack: ['User Journeys', 'Mobile UI', 'Interaction Design', 'Component System'],
-    build: [
-      'Rethought how users discover content, move between categories, and return to saved shows without unnecessary friction.',
-      'Focused on stronger content hierarchy, visual pacing, and cleaner discovery behaviors to make browsing feel more intentional and effortless.',
-    ],
+    id: 'purchase-order-management',
+    title: 'Purchase Order Management System',
+    genre: 'Python • Procurement • Web Application',
+    logline: 'Created a web app to manage suppliers, products, purchase orders, order totals, status tracking, search, filters, and purchase reports.',
+    stack: ['Python', 'Flask', 'SQLite', 'SQL', 'HTML', 'CSS', 'JavaScript'],
+    build: [],
+    metrics: [],
     features: [
-      'Personalized discovery patterns',
-      'Watchlist and continue-watching clarity',
-      'Content detail and browsing flow',
-      'Responsive streaming surfaces',
+      'Supplier, product, and purchase order management',
+      'Order totals and status tracking',
+      'Search, filters, and purchase reports',
     ],
-    metrics: [
-      { value: '3', label: 'content journeys' },
-      { value: '5', label: 'screen states explored' },
-      { value: '1', label: 'iterative design system' },
-    ],
-    palette: { from: '#04121f', via: '#0f4c6e', to: '#05080d', accent: '#4cc9ff' },
+    palette: { from: '#20150d', via: '#5a3924', to: '#090909', accent: '#FF9D52' },
     motif: 'tenants',
   },
 ];
 
-export type Achievement = {
-  id: string;
-  title: string;
-  org: string;
-  detail: string;
-  laurel: string;
-  link?: string;
-};
-
-export const achievements: Achievement[] = [
-  {
-    id: 'research-practice',
-    title: 'Research Practice',
-    org: 'Self-initiated',
-    detail: 'Mapped user needs and synthesis themes across concept projects to sharpen decision-making and prioritization.',
-    laurel: 'UX Research',
-  },
-  {
-    id: 'prototype-iteration',
-    title: 'Prototype Iteration',
-    org: 'Design Sprint',
-    detail: 'Explored multiple interaction patterns and refined them through usability-driven feedback.',
-    laurel: 'Interaction Design',
-  },
-  {
-    id: 'system-thinking',
-    title: 'System Thinking',
-    org: 'Design Systems',
-    detail: 'Built reusable patterns and scalable interfaces to keep products consistent as they grow.',
-    laurel: 'Systems',
-  },
-  {
-    id: 'visual-story',
-    title: 'Visual Storytelling',
-    org: 'Portfolio Practice',
-    detail: 'Turned concept work into a clearer narrative through layout, hierarchy, and case-study framing.',
-    laurel: 'UI Craft',
-  },
-];
-
-export type Certification = { issuer: string; name: string; link?: string };
-
-export const certifications: Certification[] = [
-  { issuer: 'Practice', name: 'UX Research Fundamentals' },
-  { issuer: 'Practice', name: 'Interaction Design Principles' },
-  { issuer: 'Practice', name: 'Design Systems Foundations' },
-  { issuer: 'Practice', name: 'Prototype Testing Basics' },
-  { issuer: 'Practice', name: 'Accessible Interface Thinking' },
-];
+export const projectHighlights = projects;
 
 export type Skill = { name: string; mono: string; note?: string };
 export type SkillCategory = { id: string; title: string; subtitle: string; skills: Skill[] };
@@ -379,11 +289,11 @@ export type Season = {
   episodes: Episode[];
 };
 
-const crimson: Palette = { from: '#24060b', via: '#6e0d1d', to: '#09070a', accent: '#ff3d5a' };
-const amber: Palette = { from: '#1c1003', via: '#6b3c06', to: '#0a0806', accent: '#ffb547' };
-const ocean: Palette = { from: '#04121f', via: '#0f4c6e', to: '#05080d', accent: '#4cc9ff' };
-const violet: Palette = { from: '#120822', via: '#3d1a6e', to: '#07060c', accent: '#b98bff' };
-const jade: Palette = { from: '#03150f', via: '#0d5a40', to: '#050a08', accent: '#46e3a8' };
+const orange: Palette = { from: '#24140c', via: '#6b3517', to: '#090909', accent: '#FF8733' };
+const amber: Palette = { from: '#1c1003', via: '#6b3c06', to: '#0a0806', accent: '#FFB36B' };
+const copper: Palette = { from: '#20120b', via: '#68402b', to: '#090909', accent: '#FF9D52' };
+const umber: Palette = { from: '#1c140f', via: '#5a3520', to: '#090909', accent: '#C95D1B' };
+const bronze: Palette = { from: '#17110c', via: '#4d351f', to: '#090909', accent: '#FFB36B' };
 
 export const seasons: Season[] = [
   {
@@ -393,8 +303,8 @@ export const seasons: Season[] = [
     synopsis: 'Building a user-centered mindset through observation, clarity, and visual thinking.',
     episodes: [
       {
-        code: 'S01 E01',
-        title: 'The First Lens',
+        code: '01',
+        title: 'Design Foundations',
         description: 'Exploring problem framing, visual hierarchy, and the value of designing for clarity before decoration.',
         tags: ['Design thinking', 'Visual hierarchy'],
         runtime: 'Learning phase',
@@ -409,20 +319,20 @@ export const seasons: Season[] = [
     synopsis: 'Turning questions into meaningful opportunities through interviews, journeys, and synthesis.',
     episodes: [
       {
-        code: 'S02 E01',
-        title: 'The Discoverer',
+        code: '01',
+        title: 'User Research',
         description: 'Mapping user needs, friction points, and decision-making patterns to shape better product directions.',
         tags: ['User research', 'Problem discovery'],
         runtime: 'Discovery',
-        palette: violet,
+        palette: copper,
       },
       {
-        code: 'S02 E02',
-        title: 'The Synthesizer',
+        code: '02',
+        title: 'Research Synthesis',
         description: 'Combining journey mapping and ideation to find patterns and opportunities behind user behavior.',
         tags: ['Journey mapping', 'Affinity mapping'],
         runtime: 'Insight',
-        palette: crimson,
+        palette: orange,
       },
     ],
   },
@@ -433,20 +343,20 @@ export const seasons: Season[] = [
     synopsis: 'Defining interaction patterns, responsive layouts, and thoughtful product experiences.',
     episodes: [
       {
-        code: 'S03 E01',
-        title: 'The Flow Builder',
+        code: '01',
+        title: 'User Flows',
         description: 'Designing task flows and interactions that reduce friction and support clear product decisions.',
         tags: ['User flows', 'Interaction design'],
         runtime: 'UX systems',
-        palette: ocean,
+        palette: umber,
       },
       {
-        code: 'S03 E02',
-        title: 'The Interface Maker',
+        code: '02',
+        title: 'Interface Design',
         description: 'Turning structure into polished screens with responsive patterns, consistency, and stronger hierarchy.',
         tags: ['UI design', 'Design systems'],
         runtime: 'Interface design',
-        palette: jade,
+        palette: bronze,
       },
     ],
   },
@@ -457,16 +367,16 @@ export const seasons: Season[] = [
     synopsis: 'Refining concepts through low-fi exploration, clickable prototypes, and informed iteration.',
     episodes: [
       {
-        code: 'S04 E01',
-        title: 'The Prototype',
+        code: '01',
+        title: 'Prototyping',
         description: 'Testing early concepts with prototypes that make interaction trade-offs visible before polishing.',
         tags: ['Prototyping', 'Feedback'],
         runtime: 'Validation',
-        palette: crimson,
+        palette: orange,
       },
       {
-        code: 'S04 E02',
-        title: 'The Iterator',
+        code: '02',
+        title: 'Usability Testing',
         description: 'Using usability feedback to refine details, reduce confusion, and improve clarity across the product experience.',
         tags: ['Iteration', 'Usability testing'],
         runtime: 'Refinement',
@@ -481,12 +391,12 @@ export const seasons: Season[] = [
     synopsis: 'Bringing together product thinking, UX craft, and design systems into a coherent personal portfolio.',
     episodes: [
       {
-        code: 'S05 E01',
-        title: 'The Portfolio Story',
+        code: '01',
+        title: 'Portfolio Development',
         description: 'Curating design work, case studies, and process thinking into a clear, narrative experience.',
         tags: ['Case study', 'Portfolio design'],
         runtime: 'In progress',
-        palette: violet,
+        palette: copper,
       },
     ],
   },
@@ -496,15 +406,15 @@ export type TopPick = { label: string; title: string; detail: string; palette: P
 
 export const topPicks: TopPick[] = [
   { label: 'Design lens', title: 'UX Research', detail: 'User needs before screens', palette: amber },
-  { label: 'Core focus', title: 'Product Thinking', detail: 'Problem framing and prioritization', palette: crimson },
-  { label: 'Journey', title: 'User Flows', detail: 'Clear navigation and task clarity', palette: ocean },
-  { label: 'Interface craft', title: 'Visual Hierarchy', detail: 'Strong structure and rhythm', palette: violet },
-  { label: 'System design', title: 'Design Systems', detail: 'Reusable patterns & consistency', palette: jade },
+  { label: 'Core focus', title: 'Product Thinking', detail: 'Problem framing and prioritization', palette: orange },
+  { label: 'Journey', title: 'User Flows', detail: 'Clear navigation and task clarity', palette: umber },
+  { label: 'Interface craft', title: 'Visual Hierarchy', detail: 'Strong structure and rhythm', palette: copper },
+  { label: 'System design', title: 'Design Systems', detail: 'Reusable patterns & consistency', palette: bronze },
   { label: 'Prototype', title: 'Clickable Flows', detail: 'Fast validation through design', palette: amber },
-  { label: 'Experience', title: 'Interaction Design', detail: 'Micro-interactions and clarity', palette: crimson },
-  { label: 'Learning', title: 'Research Synthesis', detail: 'Insights into direction', palette: ocean },
-  { label: 'Craft', title: 'Typography', detail: 'Readable and intentional UI', palette: jade },
-  { label: 'Current focus', title: 'Case Study Design', detail: 'Writing and framing design decisions', palette: violet },
+  { label: 'Experience', title: 'Interaction Design', detail: 'Micro-interactions and clarity', palette: orange },
+  { label: 'Learning', title: 'Research Synthesis', detail: 'Insights into direction', palette: umber },
+  { label: 'Craft', title: 'Typography', detail: 'Readable and intentional UI', palette: bronze },
+  { label: 'Current focus', title: 'Case Study Design', detail: 'Writing and framing design decisions', palette: copper },
 ];
 
 /** Slides for the "▶ Play Intro" cinematic sequence. */
@@ -549,7 +459,7 @@ export const introSlides: IntroSlide[] = [
   },
 ];
 
-export type ProfileId = 'sushmita' | 'recruiter' | 'developer' | 'creative';
+export type ProfileId = 'main' | 'recruiter' | 'developer' | 'creative';
 export type SectionId = 'about' | 'journey' | 'originals' | 'picks' | 'skills' | 'moments' | 'story';
 
 export const viewerProfiles: {
@@ -560,41 +470,41 @@ export const viewerProfiles: {
   order: SectionId[];
 }[] = [
   {
-    id: 'sushmita',
-    name: 'Rohan',
+    id: 'main',
+    name: 'Rohan Gaikwad',
     blurb: 'The Product Designer',
-    color: '#e5132b',
+    color: '#FF8733',
     order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'],
   },
   {
     id: 'recruiter',
     name: 'Recruiter',
     blurb: 'Resume, skills & design story first',
-    color: '#4cc9ff',
+    color: '#FF9D52',
     order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'],
   },
   {
     id: 'developer',
     name: 'Designer',
     blurb: 'UX process, flows & prototypes first',
-    color: '#46e3a8',
+    color: '#FFB36B',
     order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'],
   },
   {
     id: 'creative',
     name: 'Creative',
-    blurb: 'The story arc & highlights first',
-    color: '#ffb547',
+    blurb: 'Journey and project highlights first',
+    color: '#C95D1B',
     order: ['journey', 'picks', 'originals', 'moments', 'about', 'skills', 'story'],
   },
 ];
 
 export const sectionMeta: Record<SectionId, { nav: string; card: string; meta: string; palette: Palette }> = {
-  about: { nav: 'About', card: 'About Me', meta: 'The Pilot • UX foundation', palette: violet },
-  journey: { nav: 'Journey', card: 'My Journey', meta: `${seasons.length} Seasons • ${seasons.reduce((n, s) => n + s.episodes.length, 0)} Episodes`, palette: amber },
-  originals: { nav: 'Originals', card: 'My Projects', meta: `${projects.length} concept studies • UX case work`, palette: crimson },
-  picks: { nav: 'Top Picks', card: 'Design Focus', meta: 'Selected themes from the process', palette: jade },
-  skills: { nav: 'Skills', card: 'My Skills', meta: `${skillCategories.length} Design categories`, palette: ocean },
-  moments: { nav: 'Moments', card: 'Design Reflections', meta: `${achievements.length} practice notes • ${certifications.length} learning cards`, palette: crimson },
-  story: { nav: 'Resume', card: 'The Full Story', meta: 'Resume • View & download', palette: violet },
+  about: { nav: 'About', card: 'About Me', meta: 'Product design and development', palette: copper },
+  journey: { nav: 'Journey', card: 'My Journey', meta: `${seasons.length} design stages`, palette: amber },
+  originals: { nav: 'Projects', card: 'My Projects', meta: `${projects.length} Python projects`, palette: orange },
+  picks: { nav: 'Design Focus', card: 'Design Focus', meta: 'Selected product design themes', palette: bronze },
+  skills: { nav: 'Skills', card: 'My Skills', meta: `${skillCategories.length} Design categories`, palette: umber },
+  moments: { nav: 'Project Highlights', card: 'Project Highlights', meta: `${projectHighlights.length} Python projects`, palette: orange },
+  story: { nav: 'Resume', card: 'The Full Story', meta: 'Resume • View & download', palette: copper },
 };

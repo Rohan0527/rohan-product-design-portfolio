@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { achievements, certifications, education, experience, profile, projects, skillCategories } from '../data/portfolio';
+import { education, profile, projects, skillCategories } from '../data/portfolio';
 import { EASE, Magnetic, SectionHeading } from './fx';
 
 /** THE FULL STORY — a designed resume preview plus view / download actions. */
 export default function ResumeSection({ onView }: { onView: () => void }) {
   return (
     <>
-      <SectionHeading kicker="The screenplay" title="The Full Story" />
+      <SectionHeading kicker="Resume" title="Professional Profile" />
       <div className="gutter grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-14">
         <motion.div
           initial={{ opacity: 0, y: 60, rotateX: 10 }}
@@ -20,9 +20,9 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
         </motion.div>
 
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <p className="font-serif text-3xl italic leading-tight text-bone">Every episode, on one page.</p>
+          <p className="font-serif text-3xl italic leading-tight text-bone">Education, skills, and projects in one place.</p>
           <p className="mt-3 text-sm leading-relaxed text-mist">
-            Education, training, projects, achievements and {certifications.length} certifications — view it here or take a copy with you.
+            Review the resume preview or download the supplied PDF.
           </p>
           <div className="mt-6 flex flex-col gap-3">
             <Magnetic className="w-full">
@@ -49,8 +49,8 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
           <dl className="mt-8 grid grid-cols-3 gap-px overflow-hidden rounded-xl bg-white/10 text-center">
             {[
               { v: education[0].score.replace('CGPA ', ''), k: 'CGPA' },
-              { v: String(projects.length), k: 'Originals' },
-              { v: String(certifications.length), k: 'Certs' },
+              { v: String(projects.length), k: 'Projects' },
+              { v: String(skillCategories.length), k: 'Skill Areas' },
             ].map((s) => (
               <div key={s.k} className="bg-ink-2 px-2 py-4">
                 <dd className="font-display text-3xl leading-none text-bone">{s.v}</dd>
@@ -75,7 +75,7 @@ function CollapsibleSheet() {
       {!open && (
         <div className="absolute inset-x-0 bottom-0 flex h-48 items-end justify-center rounded-b-2xl bg-gradient-to-t from-ink via-ink/85 to-transparent pb-4 md:hidden">
           <button type="button" onClick={() => setOpen(true)} className="glass min-h-11 rounded-full px-5 text-sm font-semibold text-bone">
-            Read the full story ↓
+            Read the resume ↓
           </button>
         </div>
       )}
@@ -84,16 +84,16 @@ function CollapsibleSheet() {
 }
 
 function H({ children }: { children: string }) {
-  return <h4 className="mb-3 mt-7 border-b border-white/10 pb-1.5 text-[10px] font-bold uppercase tracking-[0.3em] text-crimson-2 first:mt-0">{children}</h4>;
+  return <h4 className="mb-3 mt-7 border-b border-white/10 pb-1.5 text-[10px] font-bold uppercase tracking-[0.3em] text-orange-2 first:mt-0">{children}</h4>;
 }
 
 export function ResumeSheet() {
   return (
-    <article className="relative overflow-hidden rounded-2xl bg-[linear-gradient(180deg,#121218,#0c0c11)] p-6 ring-1 ring-white/10 sm:p-10">
-      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson-2/70 to-transparent" />
+    <article className="relative overflow-hidden rounded-2xl bg-[linear-gradient(180deg,#151515,#101010)] p-6 ring-1 ring-white/10 sm:p-10">
+      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-2/70 to-transparent" />
       <header className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-white/10 pb-6">
         <div>
-          <p className="text-[10px] font-bold tracking-[0.34em] text-smoke">STARRING</p>
+          <p className="text-[10px] font-bold tracking-[0.34em] text-smoke">PROFILE</p>
           <h3 className="mt-1 font-display text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[0.9] tracking-wide text-bone">{profile.fullName}</h3>
         </div>
         <div className="text-xs leading-relaxed text-mist sm:text-right">
@@ -127,33 +127,13 @@ export function ResumeSheet() {
             </div>
           ))}
 
-          <H>Work Experience</H>
-          {experience.map((x) => (
-            <div key={x.company}>
-              <div className="flex flex-wrap justify-between gap-x-3">
-                <p className="text-sm font-semibold text-bone">
-                  {x.company} — {x.role}
-                </p>
-                <p className="text-xs text-smoke">{x.period}</p>
-              </div>
-              <ul className="mt-2 space-y-1.5">
-                {x.points.map((p) => (
-                  <li key={p} className="flex gap-2 text-xs leading-relaxed text-mist">
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-crimson-2" />
-                    {p}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
           <H>Projects</H>
           {projects.map((p) => (
             <div key={p.id} className="mb-3">
               <div className="flex flex-wrap justify-between gap-x-3">
                 <p className="text-sm font-semibold text-bone">{p.title}</p>
-                <p className="text-xs text-smoke">{p.year}</p>
               </div>
+              <p className="text-xs leading-relaxed text-mist">{p.logline}</p>
               <p className="text-xs text-mist">{p.stack.join(', ')}</p>
             </div>
           ))}
@@ -169,25 +149,6 @@ export function ResumeSheet() {
               </p>
             ))}
           </div>
-
-          <H>Achievements</H>
-          <ul className="space-y-2">
-            {achievements.map((a) => (
-              <li key={a.id} className="text-xs leading-relaxed text-mist">
-                <span className="font-semibold text-bone">
-                  {a.title} — {a.org}.
-                </span>{' '}
-                {a.detail}
-              </li>
-            ))}
-          </ul>
-
-          <H>Certifications</H>
-          <p className="text-xs leading-relaxed text-mist">
-            {Array.from(new Set(certifications.map((c) => c.issuer)))
-              .map((iss) => `${iss}: ${certifications.filter((c) => c.issuer === iss).map((c) => c.name).join(', ')}`)
-              .join(' · ')}
-          </p>
         </div>
       </div>
     </article>

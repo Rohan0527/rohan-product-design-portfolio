@@ -27,7 +27,7 @@ export function PosterBackdrop({ palette, children, className = '' }: { palette:
   );
 }
 
-/** Motif illustrations for each Original, built from the project's own architecture. */
+/** Decorative motif illustrations for the project cards. */
 export function ProjectArt({ project, className = '' }: { project: Project; className?: string }) {
   const a = project.palette.accent;
   return (

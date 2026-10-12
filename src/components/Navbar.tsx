@@ -76,7 +76,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
           <button
             type="button"
             onClick={() => go('contact')}
-            className="hidden rounded-full border border-white/15 px-4 py-1.5 text-xs font-semibold tracking-[0.14em] text-bone transition hover:border-crimson-2 hover:text-crimson-2 sm:block"
+            className="hidden rounded-full border border-white/15 px-4 py-1.5 text-xs font-semibold tracking-[0.14em] text-bone transition hover:border-orange-2 hover:text-orange-2 sm:block"
           >
             LET&apos;S BUILD
           </button>
@@ -104,7 +104,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
                   transition={{ duration: 0.25, ease: EASE }}
                   className="absolute right-0 top-12 w-60 origin-top-right rounded-xl border border-white/10 bg-ink-2/95 p-2 shadow-2xl backdrop-blur-xl"
                 >
-                  <p className="px-3 pb-2 pt-1 text-[10px] font-semibold tracking-[0.24em] text-smoke">WHO&apos;S WATCHING?</p>
+                  <p className="px-3 pb-2 pt-1 text-[10px] font-semibold tracking-[0.24em] text-smoke">PORTFOLIO VIEW</p>
                   {viewerProfiles.map((p) => (
                     <button
                       key={p.id}
@@ -158,7 +158,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
                 initial={{ opacity: 0, x: -12 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.05 * i }}
-                className={`block w-full py-3 text-left font-display text-3xl tracking-wide ${active === l.id ? 'text-crimson-2' : 'text-bone'}`}
+                className={`block w-full py-3 text-left font-display text-3xl tracking-wide ${active === l.id ? 'text-orange-2' : 'text-bone'}`}
               >
                 {l.label}
               </motion.button>
@@ -174,7 +174,7 @@ function NavLink({ label, active, onClick }: { label: string; active: boolean; o
   return (
     <button type="button" onClick={onClick} className={`relative text-[13px] font-medium transition ${active ? 'text-bone' : 'text-mist hover:text-bone'}`}>
       {label}
-      {active && <motion.span layoutId="nav-underline" className="absolute -bottom-1.5 left-0 right-0 h-[2px] rounded bg-crimson" />}
+      {active && <motion.span layoutId="nav-underline" className="absolute -bottom-1.5 left-0 right-0 h-[2px] rounded bg-orange" />}
     </button>
   );
 }

@@ -67,7 +67,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
             </button>
             <div className="absolute inset-x-0 bottom-0 px-5 pb-6 sm:px-10">
               <motion.p className="mb-2 flex items-center gap-2 text-[11px] font-bold tracking-[0.34em] text-bone/80" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-                <span className="font-display text-xl tracking-normal text-crimson-2">S</span> ORIGINAL
+                PROJECT
               </motion.p>
               <motion.h2
                 id={`title-${project.id}-modal`}
@@ -82,8 +82,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
 
           <motion.div className="px-5 pb-12 sm:px-10" initial="hidden" animate="show" transition={{ staggerChildren: 0.08, delayChildren: 0.25 }}>
             <motion.div variants={block} className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-mist">
-              <span className="font-semibold text-[#46e3a8]">{project.year}</span>
-              <span className="h-1 w-1 rounded-full bg-smoke" />
+              {project.year && <><span className="font-semibold text-orange-highlight">{project.year}</span><span className="h-1 w-1 rounded-full bg-smoke" /></>}
               <span>{project.genre}</span>
             </motion.div>
 
@@ -108,8 +107,8 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
             )}
 
             {/* impact */}
-            <motion.section variants={block} className="mt-12">
-              <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Result / Impact</h3>
+            {project.metrics.length > 0 && <motion.section variants={block} className="mt-12">
+              <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-orange-2">Result / Impact</h3>
               <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-3 lg:grid-cols-5">
                 {project.metrics.map((m, i) => (
                   <motion.div
@@ -126,11 +125,11 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                   </motion.div>
                 ))}
               </div>
-            </motion.section>
+            </motion.section>}
 
-            <div className="mt-12 grid gap-10 lg:grid-cols-[3fr_2fr]">
-              <motion.section variants={block}>
-                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">My Contribution</h3>
+            <div className={`mt-12 grid gap-10 ${project.build.length ? 'lg:grid-cols-[3fr_2fr]' : ''}`}>
+              {project.build.length > 0 && <motion.section variants={block}>
+                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-orange-2">My Contribution</h3>
                 <ul className="space-y-4">
                   {project.build.map((b) => (
                     <li key={b} className="flex gap-3 text-[15px] leading-relaxed text-bone/85">
@@ -139,10 +138,10 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                     </li>
                   ))}
                 </ul>
-              </motion.section>
+              </motion.section>}
               <div className="space-y-10">
                 <motion.section variants={block}>
-                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Tech Stack</h3>
+                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-orange-2">Tech Stack</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.stack.map((t) => (
                       <span key={t} className="glass rounded-full px-3 py-1.5 text-sm font-medium text-bone">
@@ -152,11 +151,11 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                   </div>
                 </motion.section>
                 <motion.section variants={block}>
-                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Key Features</h3>
+                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-orange-2">Key Features</h3>
                   <ul className="space-y-2.5">
                     {project.features.map((f) => (
                       <li key={f} className="flex items-start gap-3 text-sm text-bone/85">
-                        <span className="text-crimson-2">✓</span>
+                        <span className="text-orange-2">✓</span>
                         {f}
                       </li>
                     ))}
@@ -167,7 +166,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
 
             {/* more like this */}
             <motion.section variants={block} className="mt-14 border-t border-white/10 pt-8">
-              <h3 className="mb-4 font-sans text-lg font-semibold text-bone">More Originals</h3>
+              <h3 className="mb-4 font-sans text-lg font-semibold text-bone">More Projects</h3>
               <div className="grid gap-4 sm:grid-cols-2">
                 {more.map((p) => (
                   <button

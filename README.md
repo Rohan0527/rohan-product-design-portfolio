@@ -1,9 +1,6 @@
-# ROHAN — THE PORTFOLIO
+# Rohan Gaikwad — Portfolio
 
-A cinematic, streaming-inspired portfolio for **Rohan Gaikwad**: Product Designer focused on UX research, product thinking, and thoughtful digital experiences.
-Every section is an episode, every project is an Original, and the whole site plays like a series.
-
-> A personal portfolio with a fictional streaming-platform look. It is not affiliated with Netflix or any other streaming service and uses none of their logos.
+A portfolio for **Rohan Gaikwad**, focused on UI/UX and product design, user research, and Python web applications.
 
 ## Run it locally
 
@@ -33,13 +30,13 @@ The static site is written to `dist/` and can be deployed as-is to Vercel, Netli
 | --- | --- |
 | Name, intro, email, LinkedIn, GitHub | `profile` |
 | A project, or a new one | `projects` |
-| Achievements / certifications | `achievements`, `certifications` |
+| Project highlights | `projectHighlights` (derived from `projects`) |
 | Skills and their notes | `skillCategories`, `skillEvidence` |
-| Journey seasons and episodes | `seasons` |
-| Top picks row | `topPicks` |
+| Design journey | `seasons` |
+| Design focus row | `topPicks` |
 | Intro highlight reel | `introSlides` |
 | Profile order (Recruiter / Designer / Creative) | `viewerProfiles` |
-| Opening studio card text | `profile.originalLabel` |
+| Opening title text | `profile.introLabel`, `profile.portfolioLabel` |
 
 **Photo:** replace `pic1.jpeg` and `pic.png`, then run:
 
@@ -53,30 +50,36 @@ This rebuilds the responsive WebP portraits and the social share image in `publi
 
 ```
 src/
-  data/portfolio.ts        ← single source of truth for the portfolio story
-  App.tsx                  ← stages: opening → profile select → home; overlays
+  data/portfolio.ts        ← source of truth for portfolio content
+  App.tsx                  ← opening, portfolio-view selection, and overlays
   components/
-    OpeningSequence        ← black → studio card → ROHAN → THE PORTFOLIO → portrait → ▶ PLAY
-    ProfileSelector        ← "Who's watching?" (changes section order only)
+    OpeningSequence        ← animated introduction
+    ProfileSelector        ← portfolio-view selection (changes section order only)
     Navbar                 ← hide-on-scroll nav, profile switcher, mobile menu
     Hero                   ← billboard: parallax portrait, particles, light streaks, floating chips
     PlayIntro              ← ▶ Play Intro: zoom into portrait → highlight reel (pause, ← →, tap zones)
     ContinueWatching       ← cards with real progress bars
-    About                  ← The Pilot
-    Seasons / EpisodeCard  ← My Journey as seasons and episodes
-    Originals / ProjectCard← pinned horizontal sequence on desktop, swipe rail on touch
+    About                  ← profile and education details
+    Journey stages         ← process stages and focus areas
+    Projects / ProjectCard ← pinned cards on desktop, swipe rail on touch
     ProjectModal           ← full-screen project overlay with a shared-element transition
-    TopPicks               ← top design-focus row
+    TopPicks               ← design-focus row
     Skills                 ← design skill genres; each card shows context
-    Achievements           ← reflection cards + learning rail
+    Achievements           ← project highlights
     ResumeViewer/ResumeModal ← designed resume sheet, PDF viewer, download
-    FinalCTA               ← contact links and next-step CTA
+    FinalCTA               ← contact links and email CTA
     CustomCursor, fx.tsx   ← cursor states, magnetic buttons, 3D tilt, text reveals, particles
-  hooks/                   ← Lenis smooth scroll + scroll lock, media queries, watch progress
+  hooks/                   ← Lenis smooth scroll + scroll lock, media queries, section progress
 scripts/build-images.mjs   ← portrait/share-image pipeline (sharp)
 ```
 
 **Stack:** React 18, TypeScript, Vite 6, Tailwind CSS 4, Framer Motion 11, Lenis.
+
+## Projects
+
+- **Manufacturing ERP & Inventory Automation System** — Python, Flask, SQLite, SQL, Pandas, CSV
+- **Employee Attendance & Leave Automation System** — Python, Flask, SQLite, SQL, HTML, CSS, JavaScript
+- **Purchase Order Management System** — Python, Flask, SQLite, SQL, HTML, CSS, JavaScript
 
 ## Accessibility and performance
 

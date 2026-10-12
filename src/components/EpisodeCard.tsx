@@ -4,7 +4,6 @@ import { EASE, Tilt } from './fx';
 import { PosterBackdrop } from './Poster';
 
 export default function EpisodeCard({ episode, index }: { episode: Episode; index: number }) {
-  const [season, ep] = episode.code.split(' ');
   return (
     <motion.article
       className="w-[80vw] shrink-0 snap-start sm:w-[52vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw]"
@@ -13,16 +12,16 @@ export default function EpisodeCard({ episode, index }: { episode: Episode; inde
       transition={{ duration: 0.7, delay: index * 0.1, ease: EASE }}
     >
       <Tilt max={7} className="group h-full rounded-xl">
-        <div className="flex h-full flex-col overflow-hidden rounded-xl bg-ink-2 ring-1 ring-white/10 transition duration-500 group-hover:ring-crimson-2/60">
+        <div className="flex h-full flex-col overflow-hidden rounded-xl bg-ink-2 ring-1 ring-white/10 transition duration-500 group-hover:ring-orange-2/60">
           <div className="relative aspect-video overflow-hidden">
             <div className="absolute inset-0 transition-transform duration-[1.2s] ease-[var(--ease-cine)] group-hover:scale-110">
               <PosterBackdrop palette={episode.palette}>
-                <span className="absolute -bottom-6 right-2 font-display text-[7.5rem] leading-none text-white/[0.09]">{ep}</span>
+                <span className="absolute -bottom-6 right-2 font-display text-[7.5rem] leading-none text-white/[0.09]">{episode.code}</span>
               </PosterBackdrop>
             </div>
             <div className="absolute left-4 top-4 flex items-center gap-2">
-              <span className="rounded bg-black/50 px-2 py-0.5 text-[10px] font-bold tracking-[0.2em] text-bone backdrop-blur">{season}</span>
-              <span className="text-[10px] font-bold tracking-[0.2em] text-bone/80">EPISODE {ep.replace('E', '')}</span>
+              <span className="rounded bg-black/50 px-2 py-0.5 text-[10px] font-bold tracking-[0.2em] text-bone backdrop-blur">AREA {episode.code}</span>
+              <span className="text-[10px] font-bold tracking-[0.2em] text-bone/80">DESIGN PROCESS</span>
             </div>
             <h4 className="absolute bottom-4 left-4 right-4 font-display text-3xl leading-none tracking-wide text-bone [transform:translateZ(30px)] sm:text-4xl">{episode.title}</h4>
           </div>

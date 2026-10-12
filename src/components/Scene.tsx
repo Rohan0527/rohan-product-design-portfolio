@@ -3,8 +3,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTrackProgress } from '../hooks/sectionProgress';
 
 /**
- * A section of the series. Fades up out of black with a short blur-to-focus,
- * and reports viewing progress for the Continue Exploring row.
+ * A portfolio section that fades into view and reports progress to the
+ * Continue Exploring row.
  */
 export default function Scene({ id, children, className = '' }: { id: string; children: ReactNode; className?: string }) {
   const ref = useRef<HTMLElement>(null);

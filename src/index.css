@@ -1,14 +1,17 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-ink: #07070a;
-  --color-ink-2: #0e0e13;
-  --color-ink-3: #16161d;
-  --color-crimson: #e5132b;
-  --color-crimson-2: #ff3d5a;
-  --color-bone: #f4f1ec;
-  --color-mist: #a7a6ad;
-  --color-smoke: #6d6c75;
+  --color-ink: #090909;
+  --color-ink-2: #101010;
+  --color-ink-3: #151515;
+  --color-warm-dark: #1c140f;
+  --color-orange: #ff8733;
+  --color-orange-2: #ff9d52;
+  --color-orange-highlight: #ffb36b;
+  --color-orange-deep: #c95d1b;
+  --color-bone: #f5f1ec;
+  --color-mist: #b8b2ac;
+  --color-smoke: #827b75;
   --font-display: 'Bebas Neue', 'Oswald', Impact, sans-serif;
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -18,6 +21,8 @@
 :root {
   color-scheme: dark;
   --gutter: clamp(16px, 4vw, 56px);
+  --orange-border: rgba(255, 135, 51, 0.18);
+  --orange-glow: rgba(255, 135, 51, 0.14);
 }
 
 html {
@@ -49,8 +54,8 @@ body {
 }
 
 ::selection {
-  background: var(--color-crimson);
-  color: white;
+  background: var(--color-orange);
+  color: var(--color-ink);
 }
 
 .gutter {
@@ -102,7 +107,7 @@ body {
 
 .glass {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--orange-border);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
 }
@@ -110,7 +115,7 @@ body {
 .focus-ring:focus-visible,
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid var(--color-crimson-2);
+  outline: 2px solid var(--color-orange-highlight);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -118,7 +123,7 @@ a:focus-visible {
 .light-streak {
   position: absolute;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 90, 110, 0.9), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 157, 82, 0.8), transparent);
   filter: blur(0.4px);
   animation: streak 7s var(--ease-cine) infinite;
   opacity: 0;
@@ -134,7 +139,7 @@ a:focus-visible {
   to { background-position: 200% center; }
 }
 .shimmer-text {
-  background: linear-gradient(90deg, #f4f1ec 0%, #f4f1ec 40%, #ff8a9a 50%, #f4f1ec 60%, #f4f1ec 100%);
+  background: linear-gradient(90deg, #f5f1ec 0%, #f5f1ec 40%, #ffb36b 50%, #f5f1ec 60%, #f5f1ec 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
