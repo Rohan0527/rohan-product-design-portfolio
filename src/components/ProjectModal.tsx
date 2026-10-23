@@ -90,21 +90,20 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               {project.logline}
             </motion.p>
 
-            {project.github && (
-              <motion.div variants={block} className="mt-6 flex flex-wrap gap-3">
-                <Magnetic>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    data-cursor="link"
-                    className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
-                  >
-                    GitHub ↗
-                  </a>
-                </Magnetic>
-              </motion.div>
-            )}
+            <motion.div variants={block} className="mt-6 flex flex-wrap gap-3">
+              <Magnetic>
+                <a
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cursor="link"
+                  aria-label={`Open ${project.title} in Figma (opens in a new tab)`}
+                  className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
+                >
+                  View Project in Figma ↗
+                </a>
+              </Magnetic>
+            </motion.div>
 
             {/* impact */}
             {project.metrics.length > 0 && <motion.section variants={block} className="mt-12">
@@ -141,7 +140,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               </motion.section>}
               <div className="space-y-10">
                 <motion.section variants={block}>
-                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-orange-2">Tech Stack</h3>
+                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-orange-2">Tools &amp; Skills</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.stack.map((t) => (
                       <span key={t} className="glass rounded-full px-3 py-1.5 text-sm font-medium text-bone">

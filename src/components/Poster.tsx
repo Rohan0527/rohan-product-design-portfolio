@@ -40,52 +40,30 @@ export function ProjectArt({ project, className = '' }: { project: Project; clas
           </radialGradient>
         </defs>
         <circle cx="290" cy="120" r="130" fill={`url(#g-${project.id})`} />
-        {project.motif === 'shield' && (
-          <g transform="translate(232 40)" fill="none" stroke={a} strokeOpacity="0.85">
-            <path d="M58 0 L116 22 V78 C116 120 90 146 58 160 C26 146 0 120 0 78 V22 Z" strokeWidth="2" />
-            <path d="M58 16 L102 33 V78 C102 111 82 132 58 144 C34 132 14 111 14 78 V33 Z" strokeWidth="1" strokeOpacity="0.4" />
-            {[0, 1, 2, 3, 4].map((i) => (
-              <line key={i} x1="30" x2={i % 2 ? 72 : 86} y1={56 + i * 14} y2={56 + i * 14} strokeWidth="3" strokeLinecap="round" strokeOpacity={0.35 + i * 0.1} />
-            ))}
-            <path d="M40 124 l12 12 l26 -28" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+        {project.motif === 'finance' && (
+          <g transform="translate(210 54)" fill="none" stroke={a} strokeOpacity="0.85" strokeWidth="2">
+            <rect x="0" y="16" width="150" height="104" rx="14" />
+            <path d="M0 43h150M18 84h38M18 99h62" strokeOpacity="0.55" />
+            <circle cx="116" cy="84" r="20" />
+            <path d="M116 73v22m-7-16c0-5 14-5 14 0s-14 5-14 10 14 5 14 0" strokeLinecap="round" />
+            <path d="M22 1h64M22 9h40" strokeLinecap="round" strokeOpacity="0.45" />
           </g>
         )}
-        {project.motif === 'flow' && (
-          <g fill="none" stroke={a}>
-            <rect x="200" y="56" width="150" height="94" rx="12" strokeWidth="2" strokeOpacity="0.85" />
-            <rect x="214" y="72" width="28" height="20" rx="4" strokeOpacity="0.7" />
-            <line x1="214" x2="330" y1="124" y2="124" strokeWidth="3" strokeOpacity="0.4" strokeDasharray="18 8" />
-            <g transform="translate(176 196)" fontFamily="Inter" fontSize="10" fill={a} stroke="none" letterSpacing="2">
-              <circle cx="16" cy="16" r="16" fill="none" stroke={a} strokeWidth="2" />
-              <path d="M34 16 h46" stroke={a} strokeWidth="2" />
-              <circle cx="96" cy="16" r="16" fill="none" stroke={a} strokeWidth="2" strokeOpacity="0.8" />
-              <path d="M112 8 l38 -22 M112 24 l38 22" stroke={a} strokeWidth="2" strokeOpacity="0.6" />
-              <circle cx="166" cy="-18" r="10" fill={a} fillOpacity="0.8" />
-              <circle cx="166" cy="50" r="10" fill="none" stroke={a} strokeWidth="2" strokeOpacity="0.5" />
-            </g>
+        {project.motif === 'healthcare' && (
+          <g transform="translate(216 50)" fill="none" stroke={a} strokeOpacity="0.85" strokeWidth="2">
+            <rect x="14" y="0" width="126" height="168" rx="18" />
+            <path d="M48 0v18h58V0M14 42h126" strokeOpacity="0.6" />
+            <path d="M66 68h22v18h18v22H88v18H66v-18H48V86h18z" strokeLinejoin="round" />
+            <circle cx="77" cy="150" r="4" fill={a} stroke="none" />
+            <path d="M0 100h18m-9-9v18M145 74h28m-14-14v28" strokeLinecap="round" strokeOpacity="0.5" />
           </g>
         )}
-        {project.motif === 'tenants' && (
-          <g fill="none" stroke={a}>
-            {[0, 1, 2].map((r) =>
-              [0, 1, 2, 3].map((c) => (
-                <rect
-                  key={`${r}-${c}`}
-                  x={196 + c * 44}
-                  y={50 + r * 44}
-                  width="34"
-                  height="34"
-                  rx="7"
-                  strokeWidth="1.6"
-                  strokeOpacity={0.25 + ((r + c) % 3) * 0.25}
-                  fill={(r + c) % 4 === 0 ? a : 'none'}
-                  fillOpacity="0.25"
-                />
-              )),
-            )}
-            <path d="M188 200 h190" strokeWidth="2" strokeOpacity="0.7" />
-            <path d="M188 214 h190" strokeWidth="1" strokeOpacity="0.35" />
-            <path d="M188 228 h190" strokeWidth="1" strokeOpacity="0.2" />
+        {project.motif === 'fashion' && (
+          <g transform="translate(204 50)" fill="none" stroke={a} strokeOpacity="0.85" strokeWidth="2">
+            <path d="M72 20c0-14 8-22 18-22s18 8 18 22" strokeLinecap="round" />
+            <path d="M90 20 12 66l9 14 22-11 9 128h76l9-128 22 11 9-14z" strokeLinejoin="round" />
+            <path d="m48 69 42 24 42-24M90 93v104" strokeOpacity="0.45" />
+            <path d="M24 212h132" strokeLinecap="round" strokeOpacity="0.45" />
           </g>
         )}
       </svg>

@@ -68,60 +68,62 @@ export type Project = {
   build: string[];
   features: string[];
   metrics: Metric[];
-  /** Omit when the repository isn't public — the GitHub button is hidden instead of linking to a 404. */
-  github?: string;
+  projectUrl: string;
   palette: Palette;
-  motif: 'shield' | 'flow' | 'tenants';
+  motif: 'finance' | 'healthcare' | 'fashion';
 };
 
 export const projects: Project[] = [
   {
-    id: 'manufacturing-erp-inventory',
-    title: 'Manufacturing ERP & Inventory Automation System',
-    genre: 'Python • ERP • Inventory Management',
-    logline: 'Built a Python-based ERP system to manage products, suppliers, purchases, inventory, production, and sales, with SQLite-backed CRUD operations and CSV reporting.',
-    stack: ['Python', 'Flask', 'SQLite', 'SQL', 'Pandas', 'CSV'],
+    id: 'billwise',
+    title: 'BillWise – Personal Finance & Bill Management App',
+    genre: 'PERSONAL FINANCE • MOBILE APP',
+    logline: 'Designed a mobile-first finance management experience for tracking recurring bills, upcoming due dates, shared expenses, and monthly spending. Structured user flows and information architecture to simplify everyday financial management.',
+    stack: ['Figma', 'FigJam', 'Auto Layout', 'Interactive Prototyping', 'Design System'],
+    projectUrl: 'https://www.figma.com/design/QubpdAykwgsOSFHostHIUL/Sanovia?node-id=0-1&t=nLvRne5yZZgG0YMw-1',
     build: [],
     metrics: [],
     features: [
-      'Product, supplier, purchase, inventory, production, and sales management',
-      'SQLite-backed CRUD operations',
-      'CSV reporting',
+      'Recurring bill tracking and upcoming due dates',
+      'Shared expenses and monthly spending',
+      'Simplified finance-management flows and information architecture',
     ],
-    palette: { from: '#24140c', via: '#6b3517', to: '#090909', accent: '#FF8733' },
-    motif: 'shield',
+    palette: { from: '#10211d', via: '#286052', to: '#090909', accent: '#8ED4B8' },
+    motif: 'finance',
   },
   {
-    id: 'employee-attendance-leave',
-    title: 'Employee Attendance & Leave Automation System',
-    genre: 'Python • Employee Management • Automation',
-    logline: 'Developed an employee management system for attendance tracking, leave requests, attendance history, automated attendance percentages, and leave-balance calculations.',
-    stack: ['Python', 'Flask', 'SQLite', 'SQL', 'HTML', 'CSS', 'JavaScript'],
+    id: 'sanovia',
+    title: 'Sanovia – Healthcare Appointment Booking App',
+    genre: 'HEALTHCARE • APPOINTMENT BOOKING',
+    logline: 'Designed a user-centered appointment booking experience with user journeys, wireframes, and interactive prototypes for doctor discovery, slot selection, and appointment management, focusing on accessibility and simplified navigation.',
+    stack: ['Figma', 'FigJam', 'Auto Layout', 'Interactive Prototyping', 'Adobe XD', 'Design System'],
+    projectUrl: 'https://www.figma.com/design/QubpdAykwgsOSFHostHIUL/Sanovia?node-id=0-1&t=nLvRne5yZZgG0YMw-1',
     build: [],
     metrics: [],
     features: [
-      'Attendance tracking and history',
-      'Leave requests and leave-balance calculations',
-      'Automated attendance percentages',
+      'Doctor discovery and appointment slot selection',
+      'Appointment management',
+      'Accessible, simplified navigation',
     ],
-    palette: { from: '#1a0d02', via: '#8a4a07', to: '#0a0806', accent: '#FFB36B' },
-    motif: 'flow',
+    palette: { from: '#111a28', via: '#355d83', to: '#090909', accent: '#9BC6EC' },
+    motif: 'healthcare',
   },
   {
-    id: 'purchase-order-management',
-    title: 'Purchase Order Management System',
-    genre: 'Python • Procurement • Web Application',
-    logline: 'Created a web app to manage suppliers, products, purchase orders, order totals, status tracking, search, filters, and purchase reports.',
-    stack: ['Python', 'Flask', 'SQLite', 'SQL', 'HTML', 'CSS', 'JavaScript'],
+    id: 'rewear',
+    title: 'ReWear – Sustainable Fashion Marketplace',
+    genre: 'SUSTAINABLE FASHION • MARKETPLACE',
+    logline: 'Designed a responsive e-commerce experience with wireframes and interactive prototypes for product discovery, search filters, product details, and checkout. Focused on seller trust, visual hierarchy, consistent UI patterns, and reusable design elements.',
+    stack: ['Figma', 'FigJam', 'Auto Layout', 'Interactive Prototyping', 'Adobe XD', 'Design System'],
+    projectUrl: 'https://www.figma.com/design/QubpdAykwgsOSFHostHIUL/Sanovia?node-id=0-1&t=nLvRne5yZZgG0YMw-1',
     build: [],
     metrics: [],
     features: [
-      'Supplier, product, and purchase order management',
-      'Order totals and status tracking',
-      'Search, filters, and purchase reports',
+      'Product discovery, search filters, and product details',
+      'Checkout and seller trust',
+      'Consistent, reusable UI patterns',
     ],
-    palette: { from: '#20150d', via: '#5a3924', to: '#090909', accent: '#FF9D52' },
-    motif: 'tenants',
+    palette: { from: '#21191a', via: '#69464a', to: '#090909', accent: '#D9A6A0' },
+    motif: 'fashion',
   },
 ];
 
@@ -502,9 +504,9 @@ export const viewerProfiles: {
 export const sectionMeta: Record<SectionId, { nav: string; card: string; meta: string; palette: Palette }> = {
   about: { nav: 'About', card: 'About Me', meta: 'Product design and development', palette: copper },
   journey: { nav: 'Journey', card: 'My Journey', meta: `${seasons.length} design stages`, palette: amber },
-  originals: { nav: 'Projects', card: 'My Projects', meta: `${projects.length} Python projects`, palette: orange },
+  originals: { nav: 'Projects', card: 'My Projects', meta: `${projects.length} product design projects`, palette: orange },
   picks: { nav: 'Design Focus', card: 'Design Focus', meta: 'Selected product design themes', palette: bronze },
   skills: { nav: 'Skills', card: 'My Skills', meta: `${skillCategories.length} Design categories`, palette: umber },
-  moments: { nav: 'Project Highlights', card: 'Project Highlights', meta: `${projectHighlights.length} Python projects`, palette: orange },
+  moments: { nav: 'Project Highlights', card: 'Project Highlights', meta: `${projectHighlights.length} product design projects`, palette: orange },
   story: { nav: 'Resume', card: 'The Full Story', meta: 'Resume • View & download', palette: copper },
 };

@@ -19,11 +19,11 @@ function Intro() {
   return (
     <div className="flex w-full shrink-0 flex-col justify-center lg:w-[34vw]">
       <p className="mb-3 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-orange-2">
-        <span className="h-px w-8 bg-orange-2" /> {projects.length} Python projects
+        <span className="h-px w-8 bg-orange-2" /> {projects.length} PRODUCT DESIGN PROJECTS
       </p>
       <RevealText as="h2" text="PROJECTS" className="font-display text-[clamp(3.5rem,9vw,8rem)] leading-[0.85] text-bone" />
       <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-mist">
-        Python applications for inventory, employee attendance, and purchase order management. Open a project to explore its features and technology.
+        Thoughtful digital experiences for everyday finance, healthcare, and sustainable shopping. Explore the design details or open a project in Figma.
       </p>
       <p className="mt-6 hidden text-xs tracking-[0.24em] text-smoke lg:block">SCROLL TO BROWSE →</p>
     </div>
