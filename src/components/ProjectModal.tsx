@@ -97,10 +97,11 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="link"
-                  aria-label={`Open ${project.title} in Figma (opens in a new tab)`}
+                  aria-label={`Open ${project.title} in UX Pilot (opens in a new tab)`}
                   className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
                 >
-                  View Project in Figma ↗
+                  <span>View Project</span>
+                  <span aria-hidden>↗</span>
                 </a>
               </Magnetic>
             </motion.div>

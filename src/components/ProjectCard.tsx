@@ -13,25 +13,26 @@ export default function ProjectCard({ project, index, onOpen }: { project: Proje
       transition={{ duration: 0.9, delay: index * 0.08, ease: EASE }}
     >
       <Tilt max={5} className="group rounded-2xl">
-        <div className="relative h-[620px] overflow-hidden rounded-2xl ring-1 ring-white/10 transition duration-500 group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)] group-hover:ring-white/25 sm:h-[640px] lg:h-[66vh] lg:min-h-[620px]">
-          <motion.div layoutId={`art-${project.id}`} className="absolute inset-0 overflow-hidden rounded-2xl">
-            <div className="absolute inset-0 transition-transform duration-[1.4s] ease-[var(--ease-cine)] group-hover:scale-[1.07]">
-              <ProjectArt project={project} />
+        <div className="flex h-[660px] flex-col overflow-hidden rounded-2xl ring-1 ring-white/10 transition duration-500 group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)] group-hover:ring-white/25 sm:h-[680px] lg:h-[740px]">
+          <div className="relative aspect-video w-full shrink-0 overflow-hidden rounded-t-2xl">
+            <motion.div layoutId={`art-${project.id}`} className="absolute inset-0 overflow-hidden">
+              <div className="absolute inset-0 transition-transform duration-[1.4s] ease-[var(--ease-cine)] group-hover:scale-[1.07]">
+                <ProjectArt project={project} showOverlay={false} />
+              </div>
+            </motion.div>
+            <div className="absolute left-5 top-5 flex items-center gap-2 rounded bg-black/60 px-2.5 py-1 backdrop-blur-sm sm:left-7 sm:top-7">
+              <span className="text-[10px] font-bold tracking-[0.34em] text-bone/90">PROJECT</span>
             </div>
-          </motion.div>
-
-          <div className="absolute left-5 top-5 flex items-center gap-2 sm:left-7 sm:top-7">
-            <span className="text-[10px] font-bold tracking-[0.34em] text-bone/80">PROJECT</span>
+            {project.year && <span className="absolute right-5 top-5 rounded border border-white/30 bg-black/60 px-1.5 py-px text-[10px] font-bold text-bone backdrop-blur-sm sm:right-7 sm:top-7">{project.year}</span>}
           </div>
-          {project.year && <span className="absolute right-5 top-5 rounded border border-white/30 px-1.5 py-px text-[10px] font-bold text-bone sm:right-7 sm:top-7">{project.year}</span>}
 
-          <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 [transform:translateZ(40px)]">
+          <div className="flex flex-1 flex-col p-5 sm:p-6">
             <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-mist sm:text-[11px] sm:tracking-[0.24em]">{project.genre}</p>
-            <motion.h3 layoutId={`title-${project.id}`} className="max-w-[18ch] break-words font-display text-[clamp(2rem,5vw,4rem)] leading-[0.92] tracking-wide text-bone">
+            <motion.h3 layoutId={`title-${project.id}`} className="max-w-full break-words font-display text-[clamp(1.8rem,4vw,3rem)] leading-[0.96] tracking-wide text-bone">
               {project.title}
             </motion.h3>
-            <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-bone/75 sm:text-[15px]">{project.logline}</p>
-            <p className="mb-2 mt-4 text-[10px] font-bold uppercase tracking-[0.24em] text-orange-2">Tools &amp; Skills</p>
+            <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-bone/75 sm:text-[14px]">{project.logline}</p>
+            <p className="mb-2 mt-3 text-[10px] font-bold uppercase tracking-[0.24em] text-orange-2">Tools &amp; Skills</p>
             <div className="flex flex-wrap gap-1.5">
               {project.stack.map((t) => (
                 <span key={t} className="rounded-full bg-black/35 px-2.5 py-1 text-[11px] font-medium text-bone/90 backdrop-blur">
@@ -39,7 +40,7 @@ export default function ProjectCard({ project, index, onOpen }: { project: Proje
                 </span>
               ))}
             </div>
-            <div className="mt-5 flex flex-wrap items-center gap-3">
+            <div className="mt-4 flex flex-wrap items-center gap-3">
               <button
                 type="button"
                 onClick={onOpen}
@@ -53,10 +54,11 @@ export default function ProjectCard({ project, index, onOpen }: { project: Proje
                 target="_blank"
                 rel="noopener noreferrer"
                 data-cursor="link"
-                aria-label={`Open ${project.title} in Figma (opens in a new tab)`}
+                aria-label={`Open ${project.title} in UX Pilot (opens in a new tab)`}
                 className="focus-ring flex min-h-11 items-center gap-2 rounded-md border border-white/25 bg-black/30 px-4 text-sm font-semibold text-bone backdrop-blur transition hover:border-bone"
               >
-                Open Figma ↗
+                <span>View Project</span>
+                <span aria-hidden>↗</span>
               </a>
             </div>
           </div>

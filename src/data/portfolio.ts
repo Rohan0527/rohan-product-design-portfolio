@@ -23,7 +23,7 @@ export const profile = {
     hackerrank: 'https://www.hackerrank.com/profile/rohangaikwad2707',
     leetcode: 'https://leetcode.com/u/igrohan27/',
   },
-  resumePdf: '/assets/Rohan-Gaikwad-Resume.pdf',
+  resumePdf: '/assets/Rohan-Gaikwad-Resume-2026.pdf',
   portrait: {
     src: '/assets/portrait-720.webp',
     srcSet: '/assets/portrait-420.webp 420w, /assets/portrait-720.webp 720w, /assets/portrait-1100.webp 1100w',
@@ -69,6 +69,7 @@ export type Project = {
   features: string[];
   metrics: Metric[];
   projectUrl: string;
+  thumbnail?: string;
   palette: Palette;
   motif: 'finance' | 'healthcare' | 'fashion';
 };
@@ -80,7 +81,8 @@ export const projects: Project[] = [
     genre: 'PERSONAL FINANCE • MOBILE APP',
     logline: 'Designed a mobile-first finance management experience for tracking recurring bills, upcoming due dates, shared expenses, and monthly spending. Structured user flows and information architecture to simplify everyday financial management.',
     stack: ['Figma', 'FigJam', 'Auto Layout', 'Interactive Prototyping', 'Design System'],
-    projectUrl: 'https://www.figma.com/design/QubpdAykwgsOSFHostHIUL/Sanovia?node-id=0-1&t=nLvRne5yZZgG0YMw-1',
+    projectUrl: 'https://uxpilot.ai/s/43e5cf6321025e417daa33048baea207',
+    thumbnail: '/images/projects/billwise-thumbnail.png',
     build: [],
     metrics: [],
     features: [
@@ -97,7 +99,8 @@ export const projects: Project[] = [
     genre: 'HEALTHCARE • APPOINTMENT BOOKING',
     logline: 'Designed a user-centered appointment booking experience with user journeys, wireframes, and interactive prototypes for doctor discovery, slot selection, and appointment management, focusing on accessibility and simplified navigation.',
     stack: ['Figma', 'FigJam', 'Auto Layout', 'Interactive Prototyping', 'Adobe XD', 'Design System'],
-    projectUrl: 'https://www.figma.com/design/QubpdAykwgsOSFHostHIUL/Sanovia?node-id=0-1&t=nLvRne5yZZgG0YMw-1',
+    projectUrl: 'https://uxpilot.ai/s/540510b118a1cb13ce64acf96d92cda9',
+    thumbnail: '/images/projects/sanovia-thumbnail.png',
     build: [],
     metrics: [],
     features: [
@@ -114,7 +117,8 @@ export const projects: Project[] = [
     genre: 'SUSTAINABLE FASHION • MARKETPLACE',
     logline: 'Designed a responsive e-commerce experience with wireframes and interactive prototypes for product discovery, search filters, product details, and checkout. Focused on seller trust, visual hierarchy, consistent UI patterns, and reusable design elements.',
     stack: ['Figma', 'FigJam', 'Auto Layout', 'Interactive Prototyping', 'Adobe XD', 'Design System'],
-    projectUrl: 'https://www.figma.com/design/QubpdAykwgsOSFHostHIUL/Sanovia?node-id=0-1&t=nLvRne5yZZgG0YMw-1',
+    projectUrl: 'https://uxpilot.ai/s/1aeaa550593bfe2d3e5a83e6c0d72834',
+    thumbnail: '/images/projects/rewear-thumbnail.png',
     build: [],
     metrics: [],
     features: [

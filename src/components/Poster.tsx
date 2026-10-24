@@ -28,8 +28,26 @@ export function PosterBackdrop({ palette, children, className = '' }: { palette:
 }
 
 /** Decorative motif illustrations for the project cards. */
-export function ProjectArt({ project, className = '' }: { project: Project; className?: string }) {
+export function ProjectArt({ project, className = '', showOverlay = true }: { project: Project; className?: string; showOverlay?: boolean }) {
   const a = project.palette.accent;
+  if (project.thumbnail) {
+    return (
+      <div
+        className={`absolute inset-0 overflow-hidden ${className}`}
+        style={{ background: `linear-gradient(160deg, ${project.palette.from} 0%, ${project.palette.to} 100%)` }}
+      >
+        <img
+          src={project.thumbnail}
+          alt={`${project.title} thumbnail`}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-contain object-top"
+        />
+        {showOverlay && <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />}
+      </div>
+    );
+  }
+
   return (
     <PosterBackdrop palette={project.palette} className={className}>
       <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full" aria-hidden>
